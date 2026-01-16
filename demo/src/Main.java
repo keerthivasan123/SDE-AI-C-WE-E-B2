@@ -3,23 +3,24 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
-
+import java.io.FileReader;
+import java.io.IOException;
 import static java.lang.Math.*;
 
-void main(String[] arr) {
+void m1() throws IOException {
+    m2();
+}
+void m2() throws IOException {
+    m3();
+}
+void m3() throws IOException {
+    throw new IOException("Error");
+}
 
-    java.util.Scanner sc = new java.util.Scanner(System.in);
-
-    System.out.println(Arrays.toString(arr));
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
-
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+void main(String[] arr)  {
+    try {
+        m1();
+    } catch (IOException e) {
+        throw new RuntimeException(e);
     }
-
-    System.out.println(floorMod(1, 2));
 }
