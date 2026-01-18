@@ -1,5 +1,9 @@
 package collections.studentmanager;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Main {
     static void main() {
 //        StudentManager studentManager = new StudentManager();
@@ -38,6 +42,22 @@ public class Main {
         studentManagerUsingHashMap.removal(10);
 
         studentManagerUsingHashMap.print();
+
+        List<Number> list = new ArrayList<>();
+        addIntegers(list);
+
+        printNumbers(List.of(1, 2, 3));
+    }
+
+    static void addIntegers(List<? super Integer> list) {
+        list.add(10);
+        list.add(20);
+    }
+
+    static void printNumbers(List<? extends Number> list) {
+        for (Number n : list) {
+            System.out.println(n.doubleValue());
+        }
     }
 }
 
