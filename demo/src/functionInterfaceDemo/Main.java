@@ -1,8 +1,10 @@
 package functionInterfaceDemo;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -62,6 +64,16 @@ public class Main {
         list.sort((a, b) -> a - b);
 //        list.sort(Comparator.comparingInt(a -> a));
         System.out.println(list);
+
+        Person p  = new Person("asdf", 2);
+        p.age();
+        p.name();
+
+        NumberFormat nf = NumberFormat.getInstance(Locale.US);
+        System.out.println(nf.format(1234567.89));
+
+        NumberFormat cf = NumberFormat.getCurrencyInstance(Locale.US);
+        System.out.println(cf.format(1000));
 
     }
 }
