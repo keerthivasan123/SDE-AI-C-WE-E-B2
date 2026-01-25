@@ -1,8 +1,12 @@
 package I18;
 
 import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,6 +30,23 @@ public class Main {
         ResourceBundle bundle =
                 ResourceBundle.getBundle("messages", locale);
         System.out.println(bundle.getString("welcome"));
-        System.out.println(bundle.getString("asdf"));
+//        System.out.println(bundle.getString("asdf"));
+
+
+//        List<Integer> list = List.of(1, 2, 33, 4, 5, 6);
+        List<List<String>> list = List.of(
+                List.of("A", "B"),
+                List.of("C", "D")
+        );
+        List<String> flatList = list.stream()
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+        System.out.println(flatList);
+
+        LocalDate today = LocalDate.now();
+        LocalDate dob = LocalDate.of(1998, 5, 10);
+        System.out.println(today);
+        System.out.println(dob);
+
     }
 }
